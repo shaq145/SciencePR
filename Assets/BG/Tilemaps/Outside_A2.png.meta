@@ -1,0 +1,571 @@
+fileFormatVersion: 2
+guid: 7cc1fe2abcc2c8f4d9d19f1c85c2ef3d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Outside_A2_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9831fec7d6672f4a851ac2d1e0184bf
+      internalID: 356911306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_15
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43beb5990f62fee43aaa917feb2e3400
+      internalID: -1616802427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_30
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e157a5d2192c0e408af6cb1402da46a
+      internalID: -1786385678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_31
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b72a4acd3ca4434b8f6a8c69f933e73
+      internalID: 683154907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_46
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb070a2eeaafd6c4fa40633c96bf4f58
+      internalID: 988081138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_47
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b0eccb6b4fd984cbd934865f792c70
+      internalID: 1260613522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_62
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffa28bc650ca7847a67f15e8b4c4d00
+      internalID: -1451254602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_63
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25ae71e53960d1439946ed0106c11e6
+      internalID: -237471697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_78
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced2c085715c86f4caec657cb9669ba2
+      internalID: 664252924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_79
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba3cbcfcd86a38449907f97466370df
+      internalID: 1974226640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_94
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe642c271566cf44ab4b44c9012c103c
+      internalID: -1737026784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_A2_95
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd8a5458bc896f4f95b09ba9bef47fc
+      internalID: 518180632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Outside_A2_0: 1267282750
+      Outside_A2_1: 781668574
+      Outside_A2_10: -2051681899
+      Outside_A2_100: -56979651
+      Outside_A2_101: -1166603269
+      Outside_A2_102: -1623209211
+      Outside_A2_103: -995423132
+      Outside_A2_104: 1560412309
+      Outside_A2_105: -802730921
+      Outside_A2_106: 972844993
+      Outside_A2_107: 2046157737
+      Outside_A2_108: 822536807
+      Outside_A2_109: -1073695736
+      Outside_A2_11: -1453839873
+      Outside_A2_110: -769843903
+      Outside_A2_111: -949662021
+      Outside_A2_112: -1888638078
+      Outside_A2_113: 808738127
+      Outside_A2_114: 1872874310
+      Outside_A2_115: 370782578
+      Outside_A2_116: 1459776436
+      Outside_A2_117: -618067285
+      Outside_A2_118: 962262124
+      Outside_A2_119: 125124052
+      Outside_A2_12: 444189170
+      Outside_A2_120: 2057389778
+      Outside_A2_121: -1138837611
+      Outside_A2_122: 1801102466
+      Outside_A2_123: -2072846312
+      Outside_A2_124: -177736655
+      Outside_A2_125: -1025418982
+      Outside_A2_126: 549123046
+      Outside_A2_127: 1623009561
+      Outside_A2_128: 158349498
+      Outside_A2_129: -1692605762
+      Outside_A2_13: 122190407
+      Outside_A2_130: -1105166223
+      Outside_A2_131: -1613933572
+      Outside_A2_132: -1474841043
+      Outside_A2_133: -1568617225
+      Outside_A2_134: 1364803847
+      Outside_A2_135: 1625521218
+      Outside_A2_136: 255901653
+      Outside_A2_137: 1403871605
+      Outside_A2_138: -1824480477
+      Outside_A2_139: 234445830
+      Outside_A2_14: 356911306
+      Outside_A2_140: 303758464
+      Outside_A2_141: -714298489
+      Outside_A2_142: 1978936439
+      Outside_A2_143: -1588016881
+      Outside_A2_144: 609063711
+      Outside_A2_145: -1381085254
+      Outside_A2_146: -785427850
+      Outside_A2_147: -1456911099
+      Outside_A2_148: 1216736037
+      Outside_A2_149: 947410814
+      Outside_A2_15: -1616802427
+      Outside_A2_150: -1740311632
+      Outside_A2_151: 1850375131
+      Outside_A2_152: -684903865
+      Outside_A2_153: 1611378674
+      Outside_A2_154: -1946811950
+      Outside_A2_155: 1239275709
+      Outside_A2_156: -1127081773
+      Outside_A2_157: -1351552798
+      Outside_A2_158: -32346682
+      Outside_A2_159: 779052203
+      Outside_A2_16: -750472630
+      Outside_A2_160: -1293260872
+      Outside_A2_161: -1947382518
+      Outside_A2_162: 1349287897
+      Outside_A2_163: 148703941
+      Outside_A2_164: 2094743833
+      Outside_A2_165: 483800147
+      Outside_A2_166: 270964025
+      Outside_A2_167: -1403082496
+      Outside_A2_168: -1182670475
+      Outside_A2_169: -883981522
+      Outside_A2_17: -274034820
+      Outside_A2_170: 637162488
+      Outside_A2_171: 683587637
+      Outside_A2_172: 1697856886
+      Outside_A2_173: 947012064
+      Outside_A2_174: 112260500
+      Outside_A2_175: 1815289904
+      Outside_A2_176: 727460664
+      Outside_A2_177: -290525667
+      Outside_A2_178: -346533259
+      Outside_A2_179: -1997840837
+      Outside_A2_18: 1797152768
+      Outside_A2_180: 1352137642
+      Outside_A2_181: -1821652421
+      Outside_A2_182: 1772163424
+      Outside_A2_183: -1738041577
+      Outside_A2_184: -1538620343
+      Outside_A2_185: -1334665842
+      Outside_A2_186: -1865363938
+      Outside_A2_187: 1820271796
+      Outside_A2_188: 2057841570
+      Outside_A2_189: 199092332
+      Outside_A2_19: 654987038
+      Outside_A2_190: -389169885
+      Outside_A2_191: -1313826254
+      Outside_A2_2: 218289533
+      Outside_A2_20: 891263212
+      Outside_A2_21: 1124428837
+      Outside_A2_22: 624132497
+      Outside_A2_23: 1122873973
+      Outside_A2_24: 1924293954
+      Outside_A2_25: -609530945
+      Outside_A2_26: 466784509
+      Outside_A2_27: -24367875
+      Outside_A2_28: -277900365
+      Outside_A2_29: 1957840420
+      Outside_A2_3: 869035621
+      Outside_A2_30: -1786385678
+      Outside_A2_31: 683154907
+      Outside_A2_32: 1058923590
+      Outside_A2_33: -1676227511
+      Outside_A2_34: 926868471
+      Outside_A2_35: -304383002
+      Outside_A2_36: 1832531769
+      Outside_A2_37: 477089023
+      Outside_A2_38: -221383106
+      Outside_A2_39: -49039239
+      Outside_A2_4: 1167922665
+      Outside_A2_40: 1555186100
+      Outside_A2_41: -863446395
+      Outside_A2_42: -1902365027
+      Outside_A2_43: 1124557673
+      Outside_A2_44: -808273565
+      Outside_A2_45: -37147082
+      Outside_A2_46: 988081138
+      Outside_A2_47: 1260613522
+      Outside_A2_48: -1214246709
+      Outside_A2_49: -684831722
+      Outside_A2_5: -956469137
+      Outside_A2_50: -1667959078
+      Outside_A2_51: 411002182
+      Outside_A2_52: 506826226
+      Outside_A2_53: -108217611
+      Outside_A2_54: -239793528
+      Outside_A2_55: -2014183816
+      Outside_A2_56: -629142643
+      Outside_A2_57: -2042845558
+      Outside_A2_58: 475474305
+      Outside_A2_59: -1849029617
+      Outside_A2_6: 719790419
+      Outside_A2_60: 1914271965
+      Outside_A2_61: -56318609
+      Outside_A2_62: -1451254602
+      Outside_A2_63: -237471697
+      Outside_A2_64: -1949930246
+      Outside_A2_65: 1741720097
+      Outside_A2_66: -374609592
+      Outside_A2_67: 2001813699
+      Outside_A2_68: -1792920773
+      Outside_A2_69: 1329153948
+      Outside_A2_7: 1221001940
+      Outside_A2_70: -181786035
+      Outside_A2_71: -1921355977
+      Outside_A2_72: -182317463
+      Outside_A2_73: -380715353
+      Outside_A2_74: -1227830645
+      Outside_A2_75: -867027181
+      Outside_A2_76: -1788327812
+      Outside_A2_77: 1026282873
+      Outside_A2_78: 664252924
+      Outside_A2_79: 1974226640
+      Outside_A2_8: -1616763072
+      Outside_A2_80: -994157213
+      Outside_A2_81: 1721027589
+      Outside_A2_82: -1230833955
+      Outside_A2_83: -440022641
+      Outside_A2_84: -336524929
+      Outside_A2_85: 1053196196
+      Outside_A2_86: -1564352345
+      Outside_A2_87: -509326301
+      Outside_A2_88: -246048038
+      Outside_A2_89: -1764217093
+      Outside_A2_9: -1998490168
+      Outside_A2_90: -1385060962
+      Outside_A2_91: -450614447
+      Outside_A2_92: -1587927031
+      Outside_A2_93: -1751726333
+      Outside_A2_94: -1737026784
+      Outside_A2_95: 518180632
+      Outside_A2_96: -502394250
+      Outside_A2_97: 1171737378
+      Outside_A2_98: 1152260947
+      Outside_A2_99: 193632599
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

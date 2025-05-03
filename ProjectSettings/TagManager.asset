@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemies
+  - Bullet
+  - EnemyBullet
+  - Trees
+  - DestroyableObject
+  - NPC
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - SecondCamera
+  - 
+  - Player
+  - Enemies
+  - Ground
+  - Bullet
+  - EnemyBullet
+  - Loot
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3774073535
+    locked: 0
+  - name: Loot
+    uniqueID: 3430396173
+    locked: 0
+  - name: Player
+    uniqueID: 1675205125
+    locked: 0
