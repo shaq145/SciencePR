@@ -8,14 +8,15 @@ public class PlayerHealth : MonoBehaviour   {
 
     [SerializeField]
     private Image healthBarImage;
-    public PlayerController theHealth;
+    public int curHealth;
+    public int maxHealth;
     public TextMeshProUGUI healthText;
 
     void Update () {
-        float value = (float) theHealth.curHealth / theHealth.maxHealth;
+        float value = (float) curHealth / maxHealth;
 
         healthBarImage.fillAmount = value;
         healthBarImage.color = Color.Lerp (Color.red, Color.green, value);
-        healthText.text = "HP: " + theHealth.curHealth + "/" + theHealth.maxHealth;
+        healthText.text = "HP: " + curHealth + "/" + maxHealth;
     }
 }
