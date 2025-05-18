@@ -12,12 +12,24 @@ public class DialogueManager : MonoBehaviour {
     public int counter;
     public int npcDialogueCounter;
 
+    public int successDialogue;
+    public int failedDialogue;
+
     public GameObject dialoguePanel;
     public GameObject controls;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogue;
 
     public TextMeshProUGUI btnText;
+
+    public bool questLevel;
+    public int questCount;
+    public int questCountRequired;
+    public GameObject gate;
+
+    public NPCQuest npcQuest;
+
+    public TextMeshProUGUI questText;
 
     [Serializable]
     public class Dialogue {
@@ -38,6 +50,8 @@ public class DialogueManager : MonoBehaviour {
     public List<DialogueList> dialogueList;
     public PlayerController player;
 
+    public int stageNumberInArray;
+
     private Animation anim;
 
     // Start is called before the first frame update
@@ -56,11 +70,27 @@ public class DialogueManager : MonoBehaviour {
         } else {
             btnText.text = "Next";
         }
+
+        if ( questLevel ) {
+            questText.text = questCount.ToString () + "/" + questCountRequired.ToString ();
+
+            if ( questCount == questCountRequired ) {
+                questText.color = Color.green;
+                gate.SetActive ( false );
+            }
+        }
     }
 
     public void StartDialogue () {
         dialoguePanel.SetActive ( true );
         controls.SetActive ( false );
+
+        if ( npcQuest != null ) {
+            if ( npcQuest.questCounter != 1 ) {
+                questCount++;
+                npcQuest.questCounter = 1;
+            }
+        }
     }
 
     public void SceneTransfer () {

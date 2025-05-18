@@ -1,9 +1,10 @@
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class QuestionManager : MonoBehaviour {
 
@@ -27,7 +28,13 @@ public class QuestionManager : MonoBehaviour {
     private Vector3 playerOriginalPos;
     private Vector3 enemyOriginalPos;
 
-    public GameObject attackParticlePrefab;
+    public GameObject[] attackParticlePrefab;
+    public ShootController rangeAtk;
+
+    public GameObject cameraObj;
+    public Camera mainCamera;
+    public bool startMove;
+    public bool playerAtk;
 
     [Header (" QUESTIONS UI ")]
     public GameObject questionPanel;
@@ -37,7 +44,7 @@ public class QuestionManager : MonoBehaviour {
 
     public TextMeshProUGUI correctCountText;
 
-    [Serializable]
+    [System.Serializable]
     public class Questions {
         public int answerID;
         public string questionTitle;
@@ -46,7 +53,7 @@ public class QuestionManager : MonoBehaviour {
         public List<Choices> choices;
     }
 
-    [Serializable]
+    [System.Serializable]
     public class Choices {
         public int id;
         public string choiceName;
@@ -102,6 +109,19 @@ public class QuestionManager : MonoBehaviour {
         playerHealth.curHealth = playerCurHealth;
         enemyHealth.curHealth = enemyCurHealth;
 
+        if ( startMove ) {
+            if ( playerAtk ) {
+                mainCamera.orthographicSize = Mathf.Lerp ( mainCamera.orthographicSize, 4.3f, Time.deltaTime * 10 );
+                cameraObj.gameObject.transform.position = Vector3.MoveTowards ( cameraObj.gameObject.transform.position, playerAtkPos.position, 15 * Time.deltaTime );
+            } else {
+                mainCamera.orthographicSize = Mathf.Lerp ( mainCamera.orthographicSize, 4.3f, Time.deltaTime * 10 );
+                cameraObj.gameObject.transform.position = Vector3.MoveTowards ( cameraObj.gameObject.transform.position, enemyAtkPos.position, 15 * Time.deltaTime );
+            }
+        } else {
+            mainCamera.orthographicSize = Mathf.Lerp ( mainCamera.orthographicSize, 5f, Time.deltaTime * 10 );
+            cameraObj.gameObject.transform.position = Vector3.MoveTowards ( cameraObj.gameObject.transform.position, new Vector3 ( 0f, 0f, -10f ), 15 * Time.deltaTime );
+        }
+
     }
 
     public void SetChoicesText () {
@@ -117,9 +137,21 @@ public class QuestionManager : MonoBehaviour {
             if ( id == questionList [ counter ].answerID ) {
                 correctCount++;
                 correctText.Play ();
-                StartCoroutine ( PerformAttack ( player, currentEnemy, true, playerAtkPos.position, playerOriginalPos ) );
+                playerAtk = true;
+                int random = Random.Range ( 0, 2 );
+
+                if ( random == 0 ) {
+                    StartCoroutine ( PerformAttack ( player, currentEnemy, true, playerAtkPos.position, playerOriginalPos ) );
+                    startMove = true;
+                } else {
+                    Instantiate ( rangeAtk, enemyAtkPos.position, enemyAtkPos.rotation );
+                }
+                
             } else {
                 wrongText.Play ();
+                playerAtk = true;
+                playerAtk = false;
+                startMove = true;
                 StartCoroutine ( PerformAttack ( currentEnemy, player, false, enemyAtkPos.position, enemyOriginalPos ) );
             }
             counter++;
@@ -137,10 +169,10 @@ public class QuestionManager : MonoBehaviour {
         if ( correctCount >= correctRequired ) {
             battleResultText.text = "You Win!";
             battleInitiator.enemy.SetActive ( false );
-            dialogueManager.counter = successDialogue;
+            dialogueManager.counter = dialogueManager.successDialogue;
         } else {
             battleResultText.text = "You Lose!";
-            dialogueManager.counter = failedDialogue;
+            dialogueManager.counter = dialogueManager.failedDialogue;
         }
         
     }
@@ -155,22 +187,26 @@ public class QuestionManager : MonoBehaviour {
         battleInitiator.gameObject.SetActive ( false );
 
         dialogueManager.StartDialogue ();
+
+        
     }
 
     IEnumerator PerformAttack ( GameObject attacker, GameObject target, bool isEnemy, Vector3 targetPos, Vector3 originalPos ) {
 
         // Move to target
-        while ( Vector3.Distance ( attacker.transform.position, targetPos ) > 0.1f ) {
-            attacker.transform.position = Vector3.MoveTowards ( attacker.transform.position, targetPos, speed * Time.deltaTime );
+        while ( Vector2.Distance ( attacker.transform.position, targetPos ) > 0.1f ) {
+            attacker.transform.position = Vector2.MoveTowards ( attacker.transform.position, targetPos, speed * Time.deltaTime );
             yield return null;
         }
 
         yield return new WaitForSeconds ( 0.3f );
 
         // Instantiate attack particle
-        GameObject particle = Instantiate ( attackParticlePrefab, target.transform.position, Quaternion.identity );
+        int random = Random.Range ( 0, attackParticlePrefab.Length );
+        GameObject particle = Instantiate ( attackParticlePrefab [ random ], target.transform.position, Quaternion.identity );
         if ( isEnemy ) {
             enemyCurHealth--;
+            target.GetComponent<Animation> ().Play ( "ElementHitEffect" );
         } else {
             playerCurHealth--;
         }
@@ -180,12 +216,33 @@ public class QuestionManager : MonoBehaviour {
 
         Destroy ( particle );
 
+        startMove = false;
         // Move back
-        while ( Vector3.Distance ( attacker.transform.position, originalPos ) > 0.1f ) {
-            attacker.transform.position = Vector3.MoveTowards ( attacker.transform.position, originalPos, speed * Time.deltaTime );
+        while ( Vector2.Distance ( attacker.transform.position, originalPos ) > 0.1f ) {
+            attacker.transform.position = Vector2.MoveTowards ( attacker.transform.position, originalPos, speed * Time.deltaTime );
             yield return null;
         }
         yield return new WaitForSeconds ( 0.3f );
+
+        if ( ( questionList.Count - 1 >= counter ) && ( playerCurHealth != 0 && enemyCurHealth != 0 ) ) {
+            SetChoicesText ();
+        } else {
+            questionPanel.SetActive ( false );
+            CheckScore ();
+        }
+    }
+
+    public void PerformRangeDamage () {
+        StartCoroutine ( PerformRangeDamageRoutine () );
+    }
+
+    IEnumerator PerformRangeDamageRoutine () {
+        int random = Random.Range ( 0, attackParticlePrefab.Length );
+        GameObject particle = Instantiate ( attackParticlePrefab [ random ], currentEnemy.transform.position, Quaternion.identity );
+        enemyCurHealth--;
+        currentEnemy.GetComponent<Animation> ().Play ( "ElementHitEffect" );
+
+        yield return new WaitForSeconds ( 0.7f );
 
         if ( ( questionList.Count - 1 >= counter ) && ( playerCurHealth != 0 && enemyCurHealth != 0 ) ) {
             SetChoicesText ();

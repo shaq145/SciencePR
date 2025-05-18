@@ -10,6 +10,7 @@ public class BattleInitiator : MonoBehaviour {
     public GameObject stageParent;
     public GameObject startBattleBtn;
     public GameObject enemy;
+    public GameObject questInfo;
 
     public GameObject controls;
     public GameObject fadeOutObject;
@@ -42,6 +43,7 @@ public class BattleInitiator : MonoBehaviour {
         fadeOut.Play ( "BattleTransition" );
         yield return new WaitForSeconds ( 1f );
         stageParent.SetActive ( false );
+        questInfo.SetActive ( false );
         SceneManager.LoadSceneAsync ( sceneToAdd, LoadSceneMode.Additive );
         controls.SetActive  ( false );
         fadeOutObject.SetActive ( false );

@@ -38,6 +38,7 @@ public class EnvironmentObjets : MonoBehaviour {
             } else if ( yRequired && playerController.GetAnimVertical () >= yPosRequired ) {
                 dialogueManager.counter = npcCounter;
                 interactBtn.SetActive ( true );
+
             } else {
                 interactBtn.SetActive ( false );
             }
@@ -53,6 +54,7 @@ public class EnvironmentObjets : MonoBehaviour {
             } else if ( yRequired && playerController.GetAnimVertical () >= yPosRequired ) {
                 dialogueManager.counter = npcCounter;
                 interactBtn.SetActive ( true );
+
             } else {
                 interactBtn.SetActive ( false );
             }
