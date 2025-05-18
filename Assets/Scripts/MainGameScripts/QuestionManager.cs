@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class QuestionManager : MonoBehaviour {
 
@@ -12,9 +13,11 @@ public class QuestionManager : MonoBehaviour {
     public int correctCount;
     public int correctRequired;
 
-    [Header (" AFTER BATTLE DIALOGUES ")]
+    [Header ( " AFTER BATTLE DIALOGUES " )]
+    public GameObject battleResut;
     public int successDialogue;
     public int failedDialogue;
+    public TextMeshProUGUI battleResultText;
 
     [Header (" BATTLE LOGICS ")]
     public float speed = 5f;
@@ -70,11 +73,16 @@ public class QuestionManager : MonoBehaviour {
     public PlayerHealth playerHealth;
     public PlayerHealth enemyHealth;
 
-    private DialogueManager dialogueManager;
+    public Animation battleAnimation;
+
+    public DialogueManager dialogueManager;
+    public BattleInitiator battleInitiator;
 
     // Start is called before the first frame update
     void Start () {
         dialogueManager = FindAnyObjectByType<DialogueManager> ();
+        battleInitiator = FindAnyObjectByType<BattleInitiator> ();
+
         playerOriginalPos = player.transform.position;
         enemyOriginalPos = currentEnemy.transform.position;
 
@@ -125,11 +133,27 @@ public class QuestionManager : MonoBehaviour {
     }
 
     public void CheckScore () {
+        battleResut.SetActive ( true );
         if ( correctCount >= correctRequired ) {
+            battleResultText.text = "You Win!";
+            battleInitiator.enemy.SetActive ( false );
             dialogueManager.counter = successDialogue;
         } else {
+            battleResultText.text = "You Lose!";
             dialogueManager.counter = failedDialogue;
         }
+        
+    }
+
+    public void EndBattle () {
+        battleAnimation.Play ( "FadeOutBattle" );
+    }
+
+    public void EndBattleTransition () {
+        SceneManager.UnloadSceneAsync ( "BattleScene" );
+        battleInitiator.stageParent.SetActive ( true );
+        battleInitiator.gameObject.SetActive ( false );
+
         dialogueManager.StartDialogue ();
     }
 
@@ -163,7 +187,7 @@ public class QuestionManager : MonoBehaviour {
         }
         yield return new WaitForSeconds ( 0.3f );
 
-        if ( questionList.Count - 1 >= counter ) {
+        if ( ( questionList.Count - 1 >= counter ) && ( playerCurHealth != 0 && enemyCurHealth != 0 ) ) {
             SetChoicesText ();
         } else {
             questionPanel.SetActive ( false );
