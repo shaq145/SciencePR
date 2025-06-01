@@ -36,6 +36,8 @@ public class DialogueManager : MonoBehaviour {
         public string npcName;
         [TextArea (3, 2)]
         public string dialogue;
+
+        public bool gameObjOff;
         public GameObject animationToPlay;
         public GameObject[] objectToOff;
         public string sceneTransfer;
