@@ -34,10 +34,14 @@ public class TaskManager : MonoBehaviour {
         public GameObject exclamation;
         public GameObject relatedObject;
         public bool doorSwitchActivate; // NEW
+
+        public Task taskObject;
     }
 
     public List<DialogueList> dialogueList;
-    private Task currentTask;
+    public Task currentTask;
+
+    bool startDialogue;
 
     private void Awake () {
         Instance = this;
@@ -48,12 +52,15 @@ public class TaskManager : MonoBehaviour {
     }
 
     void Update () {
-        npcName.text = dialogueList [ taskCounter ].dialogues [ taskDialogueCounter ].npcName;
-        npcDialogue.text = dialogueList [ taskCounter ].dialogues [ taskDialogueCounter ].dialogue;
-        btnText.text = ( taskDialogueCounter >= dialogueList [ taskCounter ].dialogues.Count - 1 ) ? "End" : "Next";
+        if ( startDialogue ) {
+            npcName.text = dialogueList [ taskCounter ].dialogues [ taskDialogueCounter ].npcName;
+            npcDialogue.text = dialogueList [ taskCounter ].dialogues [ taskDialogueCounter ].dialogue;
+            btnText.text = ( taskDialogueCounter >= dialogueList [ taskCounter ].dialogues.Count - 1 ) ? "End" : "Next";
+        }
     }
 
     public void StartDialogue () {
+        startDialogue = true;
         dialoguePanel.SetActive ( true );
         controls.SetActive ( false );
         taskDialogueCounter = 0;
@@ -71,7 +78,7 @@ public class TaskManager : MonoBehaviour {
         dialoguePanel.SetActive ( false );
         controls.SetActive ( true );
 
-        Task currentTask = dialogueList [ taskCounter ].relatedObject.GetComponent<Task> ();
+        currentTask = dialogueList [ taskCounter ].taskObject;
         if ( currentTask != null ) {
             currentTask.AllowPassKey (); // Dialogue done, now puzzle appears (if needed)
         }
@@ -82,32 +89,37 @@ public class TaskManager : MonoBehaviour {
 
         if ( currentTask != null ) {
             if ( dialogueList [ taskCounter ].doorSwitchActivate ) {
-                currentTask.requiresPassKey = true;
+                dialogueList [ taskCounter ].relatedObject.GetComponent<Task> ().requiresPassKey = true;
             }
-
-            currentTask.AllowPassKey ();
+            //currentTask.AllowPassKey ();
         }
 
         if ( currentTask != null && currentTask.advanceAfterDialogueOnly ) {
             CompleteTask ();
         }
+        startDialogue = false;
     }
 
     public void CompleteTask () {
-        dialogueList [ taskCounter ].relatedObject.SetActive ( false );
+        if ( dialogueList [ taskCounter ].exclamation != null ) {
+            dialogueList [ taskCounter ].exclamation.SetActive ( false );
+        }
+
         taskCounter++;
+
         if ( taskCounter < dialogueList.Count ) {
             ActivateCurrentTask ();
         }
     }
 
     void ActivateCurrentTask () {
-        GameObject obj = dialogueList [ taskCounter ].relatedObject;
-        obj.SetActive ( true );
+        if ( dialogueList [ taskCounter ].taskObject != null ) {
+            currentTask = dialogueList [ taskCounter ].taskObject; // ✅ Assign the actual Task reference
+        }
 
-        currentTask = obj.GetComponent<Task> (); // ✅ Assign the actual Task reference
-
-        SetExclamations ( dialogueList [ taskCounter ].relatedObject );
+        if ( dialogueList [ taskCounter ].exclamation != null ) {
+            SetExclamations ( dialogueList [ taskCounter ].exclamation );
+        }
         PlayTaskText ( dialogueList [ taskCounter ].taskName );
     }
 
@@ -116,15 +128,7 @@ public class TaskManager : MonoBehaviour {
     }
 
     void SetExclamations ( GameObject currentTaskObj ) {
-        foreach ( DialogueList task in dialogueList ) {
-            if ( task.relatedObject == null )
-                continue;
-
-            Transform exMark = task.relatedObject.transform.Find ( "Exclamation" );
-            if ( exMark != null ) {
-                exMark.gameObject.SetActive ( task.relatedObject == currentTaskObj );
-            }
-        }
+        currentTaskObj.SetActive ( true );
     }
 
     void PlayTaskText ( string text ) {

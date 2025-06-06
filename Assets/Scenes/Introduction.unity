@@ -272,7 +272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &46819758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57469,31 +57469,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counter: 0
   npcDialogueCounter: 0
+  successDialogue: 0
+  failedDialogue: 0
   dialoguePanel: {fileID: 1725291736}
   controls: {fileID: 1413932252}
   npcName: {fileID: 557095854}
   npcDialogue: {fileID: 1881979273}
   btnText: {fileID: 778700779}
+  questLevel: 0
+  questCount: 0
+  questCountRequired: 0
+  gate: {fileID: 0}
+  npcQuest: {fileID: 0}
+  questText: {fileID: 0}
   dialogueList:
   - dialogueName: Tutorial
     dialogues:
     - npcName: Tutorial
       dialogue: You can use the Analog Scroll Controller to Control the Character.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Tutorial
       dialogue: You can also talk to NPCs.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Tutorial
       dialogue: Just go to their location and press the interact button.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Tutorial
       dialogue: You can now move around.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
@@ -57501,16 +57513,19 @@ MonoBehaviour:
     dialogues:
     - npcName: Scientist 1
       dialogue: Oh, hi player! I'm just here checking on the statistics of our experiment.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Player
       dialogue: That looks actually good.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Scientist 1
       dialogue: You can look around and talk to others to check what they're doing.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
@@ -57528,41 +57543,49 @@ MonoBehaviour:
     dialogues:
     - npcName: Player
       dialogue: So this is the experimented Element.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Player
       dialogue: Its so facinating to how we successfully manage to almost complete
         this.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Player
       dialogue: 'Wait! What''s happening?! '
+      gameObjOff: 0
       animationToPlay: {fileID: 328790348}
       objectToOff: []
       sceneTransfer: 
     - npcName: Scientist 2
       dialogue: The Element is becoming unstable!
+      gameObjOff: 0
       animationToPlay: {fileID: 2003319340}
       objectToOff: []
       sceneTransfer: 
     - npcName: Scientist 3
       dialogue: We can't contain it.
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Player
       dialogue: Oh! What's gonna happen to us?
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: 
     - npcName: Player
       dialogue: NOOOOOOOO!!!
+      gameObjOff: 0
       animationToPlay: {fileID: 0}
       objectToOff: []
       sceneTransfer: Stage1
   player: {fileID: 0}
+  stageNumberInArray: 0
 --- !u!111 &1852681034
 Animation:
   m_ObjectHideFlags: 0

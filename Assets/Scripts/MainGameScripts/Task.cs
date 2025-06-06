@@ -16,7 +16,9 @@ public class Task : MonoBehaviour {
     public bool hasDialogue = true;
     public bool advanceAfterDialogueOnly;
     public string code;
+    public string clue;
 
+    public TextMeshProUGUI clueText;
     public GameObject interactBtn;
     public GameObject inputPanel;
 
@@ -44,6 +46,12 @@ public class Task : MonoBehaviour {
         if ( doorSwitch != null && doorSwitchSprite.Length > 0 ) {
             doorSwitch.sprite = puzzleCompleted ? doorSwitchSprite [ 1 ] : doorSwitchSprite [ 0 ];
         }
+
+        if ( TaskManager.Instance.IsCurrentTask ( this ) ) {
+            gameObject.GetComponent<BoxCollider2D> ().enabled = true;
+        } else {
+            gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+        }
     }
 
     public void Interact () {
@@ -51,6 +59,9 @@ public class Task : MonoBehaviour {
             TaskManager.Instance.StartDialogue (); // Trigger dialogue first
         } else if ( requiresPassKey && !puzzleCompleted ) {
             inputPanel.SetActive ( true );
+            clueText.text = clue;
+            inputField.text = "";
+            resultText.text = "";
         }
     }
 
@@ -59,14 +70,15 @@ public class Task : MonoBehaviour {
     }
 
     public void SubmitCode () {
-        if ( inputField.text.Equals ( code, System.StringComparison.OrdinalIgnoreCase ) ) {
-            resultText.text = "Correct!";
-            inputField.interactable = false;
+        if ( inputField.text.Equals ( code ) ) {
+            //resultText.text = "Correct!";
             puzzleCompleted = true;
             if ( gate != null )
                 gate.SetActive ( false );
             inputPanel.SetActive ( false );
             TaskManager.Instance.CompleteTask (); // Proceed to next quest
+            inputField.text = "";
+
         } else {
             resultText.text = "Wrong Code!";
         }
@@ -95,6 +107,8 @@ public class Task : MonoBehaviour {
                 } else {
                     interactBtn.SetActive ( false );
                 }
+            } else {
+                interactBtn.SetActive ( false );
             }
         }
     }
@@ -122,6 +136,8 @@ public class Task : MonoBehaviour {
                 } else {
                     interactBtn.SetActive ( false );
                 }
+            } else {
+                interactBtn.SetActive ( false );
             }
         }
     }
